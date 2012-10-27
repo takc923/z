@@ -184,7 +184,7 @@ if compctl &> /dev/null; then
     }
   else
     _z_precmd() {
-      _z --add "${PWD:A}"
+      _z --add "$(pwd -P)"
     }
   fi
   precmd_functions+=(_z_precmd)
