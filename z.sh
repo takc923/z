@@ -180,11 +180,11 @@ if compctl &> /dev/null; then
   # zsh populate directory list, avoid clobbering any other precmds
   if [ "$_Z_NO_RESOLVE_SYMLINKS" ]; then
     _z_precmd() {
-      _z --add "${PWD:a}"
+      _z --add "$(pwd -L)"
     }
   else
     _z_precmd() {
-      _z --add "${PWD:A}"
+      _z --add "$(pwd -P)"
     }
   fi
   precmd_functions+=(_z_precmd)
